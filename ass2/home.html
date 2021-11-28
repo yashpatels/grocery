@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<style type="text/css">
+	textarea,input {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    color: black;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid black;
+    outline:none;
+    background:transparent;
+}
+</style>
+<script type="text/javascript">
+	function addcc()
+	{
+		var x=document.getElementById("nocc").value;
+		document.getElementById("cc").innerHTML="";
+			for(var i=1;i<=x;i++)
+			{
+				var s="cc"+i;
+				var element="<tr><td><input placeholder='Enter CC Address' type='email' name="+s+"></td></tr><br>";
+				document.getElementById("cc").innerHTML+=element;
+			}
+	}
+	function addbcc()
+	{
+		var x=document.getElementById("nobcc").value;
+		document.getElementById("bcc").innerHTML="";
+			for(var i=1;i<=x;i++)
+			{
+				var s="bcc"+i;
+				var element="<tr><td><input placeholder='Enter BCC Address' type='email' name="+s+"></td></tr><br>";
+				document.getElementById("bcc").innerHTML+=element;
+			}
+	}
+</script>
+<body style="background-image: linear-gradient(#ff42f673,#F3E5F5); background-attachment: fixed; width: 100%; height: 100%;">
+
+<form action="sent.php" method="POST">
+	<table align="center">
+		<tr>
+			<td><input placeholder="Sender ID" type="email" name="sender"></td>
+		</tr>
+		<tr>
+			<td><input placeholder="Sender password" type="password" name="senderpass"></td>
+		</tr>
+		<tr>
+			<td><input placeholder="Receiver ID" type="email" name="receiver"></td>
+		</tr>
+		<tr>
+			<td><input id="nocc" placeholder="Enter Number Of CC" oninput="addcc()" type="text" name="cc"></td>
+		</tr>
+		<tr >
+			<td id="cc"></td>
+		</tr>
+		<tr>
+			<td><input id="nobcc" placeholder="Enter Number of BCC" oninput="addbcc()" type="text" name="bcc"></td>
+		</tr>
+		<tr>
+			<td id="bcc"></td>
+		</tr>
+		<tr>
+			<td><input placeholder="Enter Subject" type="text" name="subject"></td>
+		</tr>
+		<tr>
+			<td><input type="file" name="uploaded_file" id="uploaded_file" /></td>
+		</tr>
+		<tr>
+			<td><textarea placeholder="Enter Body" rows="5" cols="30" name="body"></textarea></td>
+		</tr>
+	</table>
+	<input style="width:20%; margin-left: 40%;margin-right: 40%;" type="submit" name="submit">
+</form>
+</body>
+</html>
